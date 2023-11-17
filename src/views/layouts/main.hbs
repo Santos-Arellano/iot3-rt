@@ -10,7 +10,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
 </head>
-
+<script>
+<!-- This is the connection to the socket -->
+let webSocket = new WebSocket(location.origin.replace(/^http/, 'ws'));
+let el;
+webSocket.onmessage = (event) => {
+el = document.getElementById('time');
+el. innerHTML = 'Data en la db es: ' + event.data;
+19
+};
+</script>
 <body>
     <div class="container p-4">
         <div class="row">
